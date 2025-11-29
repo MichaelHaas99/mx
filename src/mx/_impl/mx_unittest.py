@@ -473,7 +473,8 @@ def _unittest(args, annotations, junit_args, prefixCp="", blacklist=None, whitel
         vmArgs += mx.get_runtime_jvm_args(updated_deps, cp_prefix=prefixCp+coreCp, jdk=jdk, force_cp=force_cp)
 
         # suppress menubar and dock when running on Mac
-        vmArgs = prefixArgs + ['-Djava.awt.headless=true'] + vmArgs
+        vmArgs = prefixArgs + ['-Djava.awt.headless=true', '--enable-preview'] + vmArgs
+        #vmArgs = prefixArgs + ['-Djava.awt.headless=true'] + vmArgs
 
         if jdk.javaCompliance > '1.8':
             # This is required to access jdk.internal.module.Modules for supporting
